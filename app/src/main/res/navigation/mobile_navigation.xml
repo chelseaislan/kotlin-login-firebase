@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="id.kotlinapp.kotlin04.fragments.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="id.kotlinapp.kotlin04.fragments.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/actionUpdEmail"
+            app:destination="@id/updateEmailFragment" />
+        <action
+            android:id="@+id/actionUpdatePassword"
+            app:destination="@id/changePassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateEmailFragment"
+        android:name="id.kotlinapp.kotlin04.fragments.UpdateEmailFragment"
+        android:label="fragment_update_email"
+        tools:layout="@layout/fragment_update_email" >
+        <action
+            android:id="@+id/actionEmailUpdated"
+            app:destination="@id/nav_profile"
+            app:popUpTo="@id/nav_profile"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/changePassFragment"
+        android:name="id.kotlinapp.kotlin04.fragments.ChangePassFragment"
+        android:label="fragment_change_pass"
+        tools:layout="@layout/fragment_change_pass" >
+        <action
+            android:id="@+id/actionPasswordUpdated"
+            app:destination="@id/nav_profile"
+            app:popUpTo="@id/nav_profile"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
